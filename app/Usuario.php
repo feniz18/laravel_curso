@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class Usuario extends Authenticatable
 {
     use Notifiable;
 
@@ -14,8 +14,9 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $table = 'usuario';
     protected $fillable = [
-        'name', 'email', 'password',
+        'nombre', 'correo', 'con',
     ];
 
     /**
@@ -24,6 +25,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'con', 'remember_token',
     ];
+
+    public function articles(){
+
+      return $this -> hasMany('App\Articulo');
+    }
 }
