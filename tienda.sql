@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 19-09-2017 a las 15:29:25
+-- Tiempo de generación: 20-09-2017 a las 02:35:25
 -- Versión del servidor: 5.7.19
 -- Versión de PHP: 7.1.9
 
@@ -40,7 +40,14 @@ CREATE TABLE IF NOT EXISTS `articulo` (
   PRIMARY KEY (`id`),
   KEY `articulo_usuario_id_foreign` (`usuario_id`),
   KEY `articulo_categoria_id_foreign` (`categoria_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `articulo`
+--
+
+INSERT INTO `articulo` (`id`, `titulo`, `contenido`, `usuario_id`, `categoria_id`, `created_at`, `updated_at`) VALUES
+(1, 'Noticia de ultima hora', 'sddfdsf', 1, 1, '2017-09-20 07:28:57', '2017-09-20 07:28:57');
 
 -- --------------------------------------------------------
 
@@ -152,16 +159,23 @@ CREATE TABLE IF NOT EXISTS `tag` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `tag`
+--
+
+INSERT INTO `tag` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
+(1, 'sucesos', '2017-09-20 07:30:48', '2017-09-20 07:30:48');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Estructura de tabla para la tabla `usuario`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
-CREATE TABLE IF NOT EXISTS `usuarios` (
+DROP TABLE IF EXISTS `usuario`;
+CREATE TABLE IF NOT EXISTS `usuario` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `nombre` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `correo` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -172,14 +186,15 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `usuario_correo_unique` (`correo`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `con`, `remember_token`, `tipo`, `created_at`, `updated_at`) VALUES
-(1, 'Andres martinez', 'calos@gmail.com', '$2y$10$eHTdLIe0P5mz1NYm6A1KPeqTWNmw0nJuAZPlM/ZHYUt28jNe93b3G', NULL, 'miembro', '2017-09-19 19:50:12', '2017-09-19 19:50:12');
+INSERT INTO `usuario` (`id`, `nombre`, `correo`, `con`, `remember_token`, `tipo`, `created_at`, `updated_at`) VALUES
+(1, 'Andres martinez', 'calos@gmail.com', '$2y$10$eHTdLIe0P5mz1NYm6A1KPeqTWNmw0nJuAZPlM/ZHYUt28jNe93b3G', NULL, 'miembro', '2017-09-19 19:50:12', '2017-09-19 19:50:12'),
+(2, 'carlos fernandez', 'usuario@gmail.com', '$2y$10$nuNyURZ3Sc9bVzFeHTWaje9Scrw74mQXSX7mLX7wXBgYApQ8bXOpa', NULL, 'miembro', '2017-09-20 05:42:49', '2017-09-20 05:42:49');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
