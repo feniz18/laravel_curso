@@ -12,7 +12,7 @@ class Tag extends Model
 
     public function articulos(){
 
-        return $this -> belongsToMany(App\Articulo);
+        return $this -> belongsToMany("App\Articulo");
 
     }
 

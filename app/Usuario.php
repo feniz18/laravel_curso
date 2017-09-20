@@ -28,8 +28,8 @@ class Usuario extends Authenticatable
         'con', 'remember_token',
     ];
 
-    public function articles(){
+    public function articulos(){
 
-      return $this -> hasMany('App\Articulo');
+      return $this->hasMany('App\Articulo','categoria_id');
     }
 }

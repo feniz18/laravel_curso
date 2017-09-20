@@ -14,8 +14,9 @@ class Articulo extends Model
 
         return $this->belongsTo('App\Categoria');
 
+
     }
-    public function user(){
+    public function usuario(){
 
       return $this->belongsTo('App\Usuario');
 
@@ -29,7 +30,7 @@ class Articulo extends Model
     }
     public function tags(){
 
-      return $this->belongsToMany('App\Img');
+      return $this->belongsToMany('App\Tag');
 
     }
 }
